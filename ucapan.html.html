@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ucapan Ulang Tahun</title>
+  <style>
+    body {
+      margin: 0; padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      margin: 0.2em 0;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    p {
+      font-size: 1.5em;
+      margin: 0.2em 0;
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      opacity: 0.8;
+      animation: fall 3s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="confettiContainer"></div>
+
+<div>
+  <h1>🎂 Selamat Ulang Tahun! 🎉</h1>
+  <p>Semoga hari ini penuh kebahagiaan dan tawa 😊</p>
+</div>
+
+<script>
+  const container = document.getElementById('confettiContainer');
+  for(let i = 0; i < 100; i++){
+    let confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDelay = Math.random() * 3 + "s";
+    confetti.style.background = `hsl(${Math.random()*360}, 70%, 60%)`;
+    confetti.style.width = confetti.style.height = Math.random()*10 + 5 + "px";
+    container.appendChild(confetti);
+  }
+</script>
+
+</body>
+</html>
